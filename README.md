@@ -22,6 +22,7 @@ This is an outline of all the applications, programs, and files managed or downl
 - Quick Look
 - Everything (voidtools)
 - UniGetUI
+- WinToys
 - Flow Launcher
 - Nora Music Player
 - Files (Community)
