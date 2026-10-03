@@ -1,41 +1,35 @@
-This is my own respository, the focus of this project is for ease of a Windows Installation. There are Redist Programs which ensure compatibility for multiple programs, as well as a whole install set of "Fluent" themed programs which can be used to replace their stock windows counterparts.
-there also is a linked download to Chris Titus Windows Utility. A Christain Cross Wallpaper Set is availble. as well as many other programs to provide a more modern and fluid Windows 11 Expereince.
-
-The File you want to download is the **Ultimate Program Installer.PS1** File in the Branches. The Releases are just uploads for zip files that are too large to be uploaded to the main branch.
-
-**Note:** The only section where you vab choose exactly what you want to downlaod is the **"Other Downloads"**, Those you can pick from the list which to download. 
-
-# Program and File List
-
-This is a outline of all the applications, programs, and files managed or downloaded by the PowerShell script, categorized for easy reference.
+Program and File List
+This is an outline of all the applications, programs, and files managed or downloaded by the PowerShell script, categorized for easy reference.
 
 ---
 
 ## Personal Programs
 
-- BrianApps Sizer
-- Proton Pass
-- OBS Studio
+- Google Chrome
 - Obsidian
 - Spotify
+- Proton Pass
+- OBS Studio
 - Bulk Crap Uninstaller
-- Google Chrome
+- BrianApps Sizer
+- AltSnap
 
 ## Fluent Programs
 
+- WindHawk
 - PowerToys
+- FxSound
+- Quick Look
+- Everything (voidtools)
+- UniGetUI
 - Flow Launcher
 - Nora Music Player
 - Files (Community)
-- FxSound
 - Nilesoft Shell
-- Twinkle Tray
-- Lively Wallpaper
-- Quick Look
-- Everything (voidtools)
-- FluentWeather (from Microsoft Store)
-- Mica TM (MicaForEveryone)
-- ShareX
+- FluentWeather
+- NanaZip
+- ExplorerPatcher
+- Wino Mail & Calendar
 - LocalSend (via Chocolatey)
 
 ## Redistributables
@@ -54,10 +48,9 @@ This is a outline of all the applications, programs, and files managed or downlo
 - Microsoft Visual C++ 2015+ Redistributable (x86)
 - Microsoft Visual C++ 2015+ Redistributable (x64)
 - Microsoft XNA Framework Redistributable
-- Microsoft DirectX End-User Runtime
+- Microsoft DirectX
 - OpenAL
 - Oracle Java Runtime Environment
-- Python 3.12
 - FFmpeg
 
 ## Other Downloads
@@ -77,3 +70,4 @@ This is a outline of all the applications, programs, and files managed or downlo
 - Spicetify
 - Rectify11Installer (x64).zip
 - System.App.Icons.zip
+- UI.Text.Change.zip
