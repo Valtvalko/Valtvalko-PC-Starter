@@ -1,4 +1,4 @@
-﻿# Requires Administrator privileges for winget, pip, and some installations.
+# Requires Administrator privileges for winget, pip, and some installations.
 # If you encounter an error about execution policy, run this in PowerShell:
 # Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 
@@ -540,33 +540,38 @@ while (-not $exitInstaller) {
         "1" {
             if (-not $personalProgramsInstalled) {
                 Install-ProgramSet "Personal Programs" {
-                    Write-Host "Installing BrianApps Sizer..."
-                    winget install --id=BrianApps.Sizer -e --accept-package-agreements --accept-source-agreements
-                    if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install BrianApps Sizer." -ForegroundColor Red }
 
+                    Write-Host "Installing Chrome..."
+                    winget install --id=Google.Chrome -e --accept-package-agreements --accept-source-agreements
+                    if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install Chrome." -ForegroundColor Red }
+                  
+                    Write-Host "Installing Obsidian..."
+                    winget install --id=Obsidian.Obsidian -e --accept-package-agreements --accept-source-agreements
+                    if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install Obsidian." -ForegroundColor Red }
+                  
+                    Write-Host "Installing Spotify..."
+                    winget install --id=Spotify.Spotify -e --accept-package-agreements --accept-source-agreements
+                    if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install Spotify." -ForegroundColor Red }
+             
                     Write-Host "Installing Proton Pass..."
                     winget install --id=Proton.ProtonPass -e --accept-package-agreements --accept-source-agreements
                     if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install Proton Pass." -ForegroundColor Red }
-
+                    
                     Write-Host "Installing OBS Studio..."
                     winget install --id=OBSProject.OBSStudio -e --accept-package-agreements --accept-source-agreements
                     if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install OBS Studio." -ForegroundColor Red }
 
-                    Write-Host "Installing Obsidian..."
-                    winget install --id=Obsidian.Obsidian -e --accept-package-agreements --accept-source-agreements
-                    if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install Obsidian." -ForegroundColor Red }
-
-                    Write-Host "Installing Spotify..."
-                    winget install --id=Spotify.Spotify -e --accept-package-agreements --accept-source-agreements
-                    if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install Spotify." -ForegroundColor Red }
-
                     Write-Host "Installing Bulk Crap Uninstaller..."
                     winget install --id=Klocman.BulkCrapUninstaller -e --accept-package-agreements --accept-source-agreements
                     if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install Bulk Crap Uninstaller." -ForegroundColor Red }
+           
+                     Write-Host "Installing BrianApps Sizer..."
+                    winget install --id=BrianApps.Sizer -e --accept-package-agreements --accept-source-agreements
+                    if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install BrianApps Sizer." -ForegroundColor Red }
 
-                    Write-Host "Installing Google Chrome..."
-                    winget install --id=Google.Chrome -e --accept-package-agreements --accept-source-agreements
-                    if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install Google Chrome." -ForegroundColor Red }
+                    Write-Host "Installing AltSnap..."
+                   winget.exe install --id "AltSnap.AltSnap" --exact --source winget --accept-source-agreements
+                    if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install AltSnap." -ForegroundColor Red }
                 } ([ref]$personalProgramsInstalled)
             } else {
                 Write-Host "Personal Programs already installed."
@@ -576,9 +581,29 @@ while (-not $exitInstaller) {
         "2" {
             if (-not $fluentProgramsInstalled) {
                 Install-ProgramSet "Fluent Programs" {
+                    Write-Host "Installing WindHawk..."
+                    winget.exe install --id "RamenSoftware.Windhawk" --exact --source winget --accept-source-agreements
+                    if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install WindHawk." -ForegroundColor Red }
+                    
                     Write-Host "Installing PowerToys..."
                     winget install --id Microsoft.PowerToys --exact --accept-package-agreements --accept-source-agreements
                     if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install PowerToys." -ForegroundColor Red }
+
+                    Write-Host "Installing FxSound..."
+                    winget install --id=FxSound.FxSound --exact --accept-package-agreements --accept-source-agreements
+                    if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install FxSound." -ForegroundColor Red }
+                    
+                    Write-Host "Installing Quick Look..."
+                    winget install --id=QL-Win.QuickLook --exact --accept-package-agreements --accept-source-agreements
+                    if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install Quick Look." -ForegroundColor Red }
+                    
+                    Write-Host "Installing Everything..."
+                    winget install --id=voidtools.Everything --exact --accept-package-agreements --accept-source-agreements
+                    if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install Everything." -ForegroundColor Red }
+                    
+                     Write-Host "Installing UniGetUI..."
+                    winget.exe install --id "MartiCliment.UniGetUI.Pre-Release" --exact --source winget --accept-source-agreements 
+                    if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install UniGetUI." -ForegroundColor Red }
 
                     Write-Host "Installing Flow Launcher..."
                     winget install --id=Flow-Launcher.Flow-Launcher --exact --accept-package-agreements --accept-source-agreements
@@ -592,41 +617,25 @@ while (-not $exitInstaller) {
                     winget install --id FilesCommunity.Files --exact --accept-package-agreements --accept-source-agreements
                     if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install Files." -ForegroundColor Red }
 
-                    Write-Host "Installing FxSound..."
-                    winget install --id=FxSound.FxSound --exact --accept-package-agreements --accept-source-agreements
-                    if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install FxSound." -ForegroundColor Red }
-
                     Write-Host "Installing Nilesoft Shell..."
                     winget install --id Nilesoft.Shell --exact --accept-package-agreements --accept-source-agreements
                     if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install Nilesoft Shell." -ForegroundColor Red }
-
-                    Write-Host "Installing Twinkle Tray..."
-                    winget install --id=xanderfrangos.twinkletray --exact --accept-package-agreements --accept-source-agreements
-                    if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install Twinkle Tray." -ForegroundColor Red }
-
-                    Write-Host "Installing Lively Wallpaper..."
-                    winget install --id rocksdanister.LivelyWallpaper --exact --accept-package-agreements --accept-source-agreements
-                    if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install Lively Wallpaper." -ForegroundColor Red }
-
-                    Write-Host "Installing Quick Look..."
-                    winget install --id=QL-Win.QuickLook --exact --accept-package-agreements --accept-source-agreements
-                    if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install Quick Look." -ForegroundColor Red }
-
-                    Write-Host "Installing Everything..."
-                    winget install --id=voidtools.Everything --exact --accept-package-agreements --accept-source-agreements
-                    if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install Everything." -ForegroundColor Red }
 
                     Write-Host "Installing FluentWeather..."
                     winget install 9pfd136m8457 --exact --accept-package-agreements --accept-source-agreements
                     if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install FluentWeather." -ForegroundColor Red }
 
-                    Write-Host "Installing Mica TM..."
-                    winget install --id MicaForEveryone.MicaForEveryone --exact --accept-package-agreements --accept-source-agreements
-                    if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install Mica TM." -ForegroundColor Red }
-                    
-                    Write-Host "Installing ShareX..."
-                    winget.exe install --id "9NCRCVJC50WL" -e --accept-package-agreements --accept-source-agreements
-                    if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install ShareX." -ForegroundColor Red }
+                    Write-Host "Installing NanaZip..."
+                    winget.exe install --id "M2Team.NanaZip" --exact --source winget --accept-source-agreements
+                    if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install NanaZip." -ForegroundColor Red }
+                     
+                    Write-Host "Installing ExplorerPatcher..."
+                    winget.exe install --id "valinet.ExplorerPatcher" --exact --source winget --accept-source-agreements
+                    if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install ExplorerPatcher." -ForegroundColor Red }
+
+                    Write-Host "Installing Wino Mail & Calender..."
+                   winget.exe install --id "9NCRCVJC50WL" --exact --source msstore --accept-source-agreements
+                    if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install Wino Mail & Calender." -ForegroundColor Red }
 
                     # LocalSend via Chocolatey
                     Write-Host "Installing LocalSend via Chocolatey..."
@@ -710,10 +719,6 @@ while (-not $exitInstaller) {
                     Write-Host "Installing Oracle Java Runtime Environment..."
                     winget install --id=Oracle.JavaRuntimeEnvironment -e --accept-package-agreements --accept-source-agreements
                     if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install Oracle Java Runtime Environment." -ForegroundColor Red }
-
-                    Write-Host "Installing Python 3.12..."
-                    winget install --id=Python.Python.3.12 -e --accept-package-agreements --accept-source-agreements
-                    if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install Python 3.12." -ForegroundColor Red }
 
                     Write-Host "Installing FFmpeg..."
                     winget install --id=Gyan.FFmpeg -e --accept-package-agreements --accept-source-agreements
