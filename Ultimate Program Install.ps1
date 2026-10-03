@@ -604,7 +604,11 @@ while (-not $exitInstaller) {
                      Write-Host "Installing UniGetUI..."
                     winget.exe install --id "MartiCliment.UniGetUI.Pre-Release" --exact --source winget --accept-source-agreements 
                     if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install UniGetUI." -ForegroundColor Red }
-
+                    
+                    Write-Host "Installing WinToys..."
+                    winget.exe install --id "9P8LTPGCBZXD" --exact --source msstore --accept-source-agreements
+                    if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install WinToys" -ForegroundColor Red }
+          
                     Write-Host "Installing Flow Launcher..."
                     winget install --id=Flow-Launcher.Flow-Launcher --exact --accept-package-agreements --accept-source-agreements
                     if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install Flow Launcher." -ForegroundColor Red }
