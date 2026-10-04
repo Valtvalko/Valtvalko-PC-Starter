@@ -37,6 +37,7 @@ This is an outline of all the applications, programs, and files managed or downl
 ## Redistributables
 
 - Chocolatey
+- .NET 10.0 Desktop Runtime
 - Microsoft Visual C++ 2005 Redistributable (x86)
 - Microsoft Visual C++ 2005 Redistributable (x64)
 - Microsoft Visual C++ 2008 Redistributable (x86)
