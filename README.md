@@ -73,3 +73,4 @@ This is an outline of all the applications, programs, and files managed or downl
 - Rectify11Installer (x64).zip
 - System.App.Icons.zip
 - UI.Text.Change.zip
+- Fluent Cursors v3 dark.zip
