@@ -584,6 +584,10 @@ while (-not $exitInstaller) {
                     Write-Host "Installing Chrome..."
                     winget install --id=Google.Chrome -e --accept-package-agreements --accept-source-agreements
                     if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install Chrome." -ForegroundColor Red }
+                         
+                    Write-Host "Installing OnlyOffice..."
+                 winget.exe install --id "ONLYOFFICE.DesktopEditors" --exact --source winget --accept-source-agreements
+                    if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install OnlyOffice." -ForegroundColor Red }
                   
                     Write-Host "Installing Obsidian..."
                     winget install --id=Obsidian.Obsidian -e --accept-package-agreements --accept-source-agreements
