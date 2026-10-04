@@ -73,12 +73,13 @@ function Show-OtherMenu {
         if (-not $rectify11Downloaded) { Write-Host "[9] Download Rectify11Installer (x64).zip" } else { Write-Host "[9] Rectify11Installer (x64).zip (Already Downloaded)" } # Option number changed
         if (-not $systemAppIconsDownloaded) { Write-Host "[10] Download System.App.Icons.zip" } else { Write-Host "[10] System.App.Icons.zip (Already Downloaded)" } # Option number changed
         if (-not $uiTextChangeDownloaded) { Write-Host "[11] Download UI.Text.Change.zip" } else { Write-Host "[11] UI.Text.Change.zip (Already Downloaded)" }
+        if (-not $fluentCursorsDownloaded) { Write-Host "[12] Download Fluent.Cursors.v3.dark.zip" } else { Write-Host "[12] Fluent.Cursors.v3.dark.zip (Already Downloaded)" }
 
         Write-Host ""
-        Write-Host "[12] Back to Main Menu"
+        Write-Host "[13] Back to Main Menu"
         Write-Host ""
 
-        $otherChoice = Read-Host "Enter your choice (1-12)"
+        $otherChoice = Read-Host "Enter your choice (1-13)"
 
         switch ($otherChoice) {
             "1" { # IconViewer
@@ -169,12 +170,20 @@ function Show-OtherMenu {
                     Read-Host "Press Enter to continue..."
                 }
             }
-            "12" { # Back to Main Menu
+            "12" { # Fluent.Cursors.v3.dark.zip
+                if (-not $fluentCursorsDownloaded) {
+                    Download-FluentCursors
+                } else {
+                    Write-Host "Fluent.Cursors.v3.dark.zip already seems to be downloaded." -ForegroundColor Yellow
+                    Read-Host "Press Enter to continue..."
+                }
+            }
+            "13" { # Back to Main Menu
                 $otherExit = $true
                 $backToMainMenu.Value = $true
             }
             default {
-                Write-Host "Invalid choice. Please enter 1-12." -ForegroundColor Red
+                Write-Host "Invalid choice. Please enter 1-13." -ForegroundColor Red
                 Read-Host "Press Enter to continue..."
             }
         }
@@ -538,6 +547,38 @@ function Install-ProgramSet {
     Read-Host "Press Enter to continue to the next step..."
 }
 
+function Download-FluentCursors {
+    Clear-Host
+    Write-Host ""
+    Write-Host "========================================="
+    Write-Host "  DOWNLOADING: Fluent.Cursors.v3.dark.zip"
+    Write-Host "========================================="
+    Write-Host ""
+
+    $url = "https://github.com/Valtvalko/Valtvalko-PC-Starter/releases/download/Cursors/Fluent.Cursors.v3.dark.zip"
+    $desktopPath = [Environment]::GetFolderPath([Environment+SpecialFolder]::Desktop)
+    $outputFileName = "Fluent.Cursors.v3.dark.zip"
+    $outputPath = Join-Path -Path $desktopPath -ChildPath $outputFileName
+
+    Write-Host "Downloading from: $url"
+    Write-Host "Saving to: $outputPath"
+    Write-Host ""
+
+    try {
+        Invoke-WebRequest -Uri $url -OutFile $outputPath -ErrorAction Stop
+        Write-Host "Download completed successfully!" -ForegroundColor Green
+        $script:fluentCursorsDownloaded = $true
+    }
+    catch {
+        Write-Host "Error downloading the file:" -ForegroundColor Red
+        Write-Host $_.Exception.Message -ForegroundColor Red
+        Write-Host "Please ensure you have an active internet connection and write permissions to your Desktop." -ForegroundColor Yellow
+    }
+
+    Read-Host "Press Enter to return to the Other Downloads menu..."
+}
+
+
 # --- Main Script Logic ---
 
 # Initialize installation/download flags
@@ -553,6 +594,7 @@ $fileCRTxtDownloaded = $false
 $rectify11Downloaded = $false 
 $systemAppIconsDownloaded = $false
 $uiTextChangeDownloaded = $false
+$fluentCursorsDownloaded = $false
 $launcherXDownloaded = $false 
 $winUtilDownloaded = $false # NEW: Flag for WinUtil
 $exitInstaller = $false
@@ -568,6 +610,7 @@ if (Test-Path (Join-Path -Path $desktopPath -ChildPath "FileCR.txt")) { $fileCRT
 if (Test-Path (Join-Path -Path $desktopPath -ChildPath "Rectify11Installer (x64).zip")) { $rectify11Downloaded = $true } 
 if (Test-Path (Join-Path -Path $desktopPath -ChildPath "System.App.Icons.zip")) { $systemAppIconsDownloaded = $true }
 if (Test-Path (Join-Path -Path $desktopPath -ChildPath "LauncherX_2.1.2_x64_Setup.exe")) { $launcherXDownloaded = $true }
+if (Test-Path (Join-Path -Path $desktopPath -ChildPath "Fluent.Cursors.v3.dark.zip")) { $fluentCursorsDownloaded = $true }
 # NEW: Check for WinUtil
 if (Test-Path (Join-Path -Path $desktopPath -ChildPath "winutil.ps1")) { $winUtilDownloaded = $true }
 
