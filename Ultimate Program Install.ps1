@@ -72,13 +72,13 @@ function Show-OtherMenu {
         if (-not $spicetifyInstalled) { Write-Host "[8] Install Spicetify" } else { Write-Host "[8] Spicetify (Already Installed)" } # Option number changed
         if (-not $rectify11Downloaded) { Write-Host "[9] Download Rectify11Installer (x64).zip" } else { Write-Host "[9] Rectify11Installer (x64).zip (Already Downloaded)" } # Option number changed
         if (-not $systemAppIconsDownloaded) { Write-Host "[10] Download System.App.Icons.zip" } else { Write-Host "[10] System.App.Icons.zip (Already Downloaded)" } # Option number changed
-
+        if (-not $uiTextChangeDownloaded) { Write-Host "[11] Download UI.Text.Change.zip" } else { Write-Host "[11] UI.Text.Change.zip (Already Downloaded)" }
 
         Write-Host ""
-        Write-Host "[11] Back to Main Menu" # Option number changed
+        Write-Host "[12] Back to Main Menu"
         Write-Host ""
 
-        $otherChoice = Read-Host "Enter your choice (1-11)" # Range changed
+        $otherChoice = Read-Host "Enter your choice (1-12)"
 
         switch ($otherChoice) {
             "1" { # IconViewer
@@ -161,12 +161,20 @@ function Show-OtherMenu {
                     Read-Host "Press Enter to continue..."
                 }
             }
-            "11" { # Back to Main Menu (Option number changed)
+            "11" { # UI.Text.Change.zip
+                if (-not $uiTextChangeDownloaded) {
+                    Download-UITextChange
+                } else {
+                    Write-Host "UI.Text.Change.zip already seems to be downloaded." -ForegroundColor Yellow
+                    Read-Host "Press Enter to continue..."
+                }
+            }
+            "12" { # Back to Main Menu
                 $otherExit = $true
                 $backToMainMenu.Value = $true
             }
             default {
-                Write-Host "Invalid choice. Please enter 1-11." -ForegroundColor Red
+                Write-Host "Invalid choice. Please enter 1-12." -ForegroundColor Red
                 Read-Host "Press Enter to continue..."
             }
         }
@@ -411,6 +419,37 @@ function Download-SystemAppIcons {
     Read-Host "Press Enter to return to the Other Downloads menu..."
 }
 
+function Download-UITextChange {
+    Clear-Host
+    Write-Host ""
+    Write-Host "========================================="
+    Write-Host "  DOWNLOADING: UI.Text.Change.zip"
+    Write-Host "========================================="
+    Write-Host ""
+
+    $url = "https://github.com/Valtvalko/Valtvalko-PC-Starter/releases/download/Zips/UI.Text.Change.zip"
+    $desktopPath = [Environment]::GetFolderPath([Environment+SpecialFolder]::Desktop)
+    $outputFileName = "UI.Text.Change.zip"
+    $outputPath = Join-Path -Path $desktopPath -ChildPath $outputFileName
+
+    Write-Host "Downloading from: $url"
+    Write-Host "Saving to: $outputPath"
+    Write-Host ""
+
+    try {
+        Invoke-WebRequest -Uri $url -OutFile $outputPath -ErrorAction Stop
+        Write-Host "Download completed successfully!" -ForegroundColor Green
+        $script:uiTextChangeDownloaded = $true
+    }
+    catch {
+        Write-Host "Error downloading the file:" -ForegroundColor Red
+        Write-Host $_.Exception.Message -ForegroundColor Red
+        Write-Host "Please ensure you have an active internet connection and write permissions to your Desktop." -ForegroundColor Yellow
+    }
+
+    Read-Host "Press Enter to return to the Other Downloads menu..."
+}
+
 function Download-LauncherX {
     Clear-Host
     Write-Host ""
@@ -513,6 +552,7 @@ $personalRainmeterDownloaded = $false
 $fileCRTxtDownloaded = $false     
 $rectify11Downloaded = $false 
 $systemAppIconsDownloaded = $false
+$uiTextChangeDownloaded = $false
 $launcherXDownloaded = $false 
 $winUtilDownloaded = $false # NEW: Flag for WinUtil
 $exitInstaller = $false
@@ -604,11 +644,7 @@ while (-not $exitInstaller) {
                      Write-Host "Installing UniGetUI..."
                     winget.exe install --id "MartiCliment.UniGetUI.Pre-Release" --exact --source winget --accept-source-agreements 
                     if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install UniGetUI." -ForegroundColor Red }
-                    
-                    Write-Host "Installing WinToys..."
-                    winget.exe install --id "9P8LTPGCBZXD" --exact --source msstore --accept-source-agreements
-                    if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install WinToys" -ForegroundColor Red }
-          
+
                     Write-Host "Installing Flow Launcher..."
                     winget install --id=Flow-Launcher.Flow-Launcher --exact --accept-package-agreements --accept-source-agreements
                     if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install Flow Launcher." -ForegroundColor Red }
