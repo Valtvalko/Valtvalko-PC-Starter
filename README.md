@@ -6,6 +6,7 @@ This is an outline of all the applications, programs, and files managed or downl
 ## Personal Programs
 
 - Google Chrome
+- OnlyOffice
 - Obsidian
 - Spotify
 - Proton Pass
