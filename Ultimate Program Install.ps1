@@ -741,7 +741,11 @@ while (-not $exitInstaller) {
                     Write-Host "Installing Chocolatey via Winget..."
                     winget.exe install --id "Chocolatey.Chocolatey" -e --accept-package-agreements --accept-source-agreements
                     if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install Chocolatey. Manual installation may be required: 'Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))'." -ForegroundColor Red }
+                    
 
+                    Write-Host "Installing .NET Runtime 10..."
+                    inget.exe uninstall --id "Microsoft.DotNet.Runtime.10" --exact --source winget --accept-source-agreements
+                    if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install .NET Runtime 10." -ForegroundColor Red }
 
                     Write-Host "Installing VC Redist 2005 x86..."
                     winget install --id=Microsoft.VCRedist.2005.x86 -e --accept-package-agreements --accept-source-agreements
