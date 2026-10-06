@@ -700,9 +700,9 @@ while (-not $exitInstaller) {
                     winget install --id=Sandakan.Nora --exact --accept-package-agreements --accept-source-agreements
                     if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install Nora Music Player." -ForegroundColor Red }
 
-                    Write-Host "Installing Files..."
-                    winget install --id FilesCommunity.Files --exact --accept-package-agreements --accept-source-agreements
-                    if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install Files." -ForegroundColor Red }
+                    Write-Host "Installing Rainmeter..."
+                    winget.exe install --id "Rainmeter.Rainmeter" --exact --source winget --accept-source-agreements 
+                    if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install Rainmeter." -ForegroundColor Red }
 
                     Write-Host "Installing Nilesoft Shell..."
                     winget install --id Nilesoft.Shell --exact --accept-package-agreements --accept-source-agreements
