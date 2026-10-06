@@ -1,6 +1,6 @@
 To Properely use the Git Repository, please download the .ps1 file in the main tree. Note the *Releases* section is only being used to upload bigger sized files which easily go with the ps1 file. *Please Download from Main*
 
-# Program and File List
+# Programs and Files List
 
 This is an outline of all the applications, programs, and files managed or downloaded by the PowerShell script, categorized for easy reference.
 
