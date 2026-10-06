@@ -29,7 +29,7 @@ This is an outline of all the applications, programs, and files managed or downl
 - WinToys
 - Flow Launcher
 - Nora Music Player
-- Files (Community)
+- Rainmeter
 - Nilesoft Shell
 - FluentWeather
 - NanaZip
