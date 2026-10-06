@@ -15,8 +15,6 @@ This is an outline of all the applications, programs, and files managed or downl
 - Proton Pass
 - OBS Studio
 - Bulk Crap Uninstaller
-- BrianApps Sizer
-- AltSnap
 
 ## Fluent Programs
 
