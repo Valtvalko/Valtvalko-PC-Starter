@@ -1,4 +1,4 @@
-To Proper Use the Git Repository, please download the .ps1 file in the main tree. Note the *Releases* section is only being used to upload bigger sized files which easily go with the ps1 file. *Please Download from Main*
+To Properely use the Git Repository, please download the .ps1 file in the main tree. Note the *Releases* section is only being used to upload bigger sized files which easily go with the ps1 file. *Please Download from Main*
 
 # Program and File List
 
