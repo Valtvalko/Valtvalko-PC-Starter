@@ -59,7 +59,7 @@ This is an outline of all the applications, programs, and files managed or downl
 - Oracle Java Runtime Environment
 - FFmpeg
 
-## Other Downloads (Per Download is optional)
+## Other Downloads (Selective Per Download)
 
 ### Tools & Utilities
 
