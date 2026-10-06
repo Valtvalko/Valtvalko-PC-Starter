@@ -651,14 +651,6 @@ while (-not $exitInstaller) {
                     Write-Host "Installing Bulk Crap Uninstaller..."
                     winget install --id=Klocman.BulkCrapUninstaller -e --accept-package-agreements --accept-source-agreements
                     if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install Bulk Crap Uninstaller." -ForegroundColor Red }
-           
-                     Write-Host "Installing BrianApps Sizer..."
-                    winget install --id=BrianApps.Sizer -e --accept-package-agreements --accept-source-agreements
-                    if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install BrianApps Sizer." -ForegroundColor Red }
-
-                    Write-Host "Installing AltSnap..."
-                   winget.exe install --id "AltSnap.AltSnap" --exact --source winget --accept-source-agreements
-                    if ($LASTEXITCODE -ne 0) { Write-Host "Failed to install AltSnap." -ForegroundColor Red }
                 } ([ref]$personalProgramsInstalled)
             } else {
                 Write-Host "Personal Programs already installed."
